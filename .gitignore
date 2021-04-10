@@ -1,0 +1,6 @@
+.vscode
+bin
+obj
+*.db
+/node_modules
+wwwroot
