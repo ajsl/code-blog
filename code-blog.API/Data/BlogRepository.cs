@@ -31,13 +31,20 @@ namespace code_blog.API.Data
 
         }
 
-        public async Task<Post> CreatePostAsync(Post post)
+        public void CreatePostAsync(Post post)
         {
-            await _context.Posts.AddAsync(post);
-            await _context.SaveChangesAsync();
+            _context.Posts.AddAsync(post);
 
-            return post;
+        }
 
+        public void DeletePost(Post postId)
+        {
+            _context.Posts.Remove(postId);
+        }
+
+        public async Task<bool> SaveAll()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

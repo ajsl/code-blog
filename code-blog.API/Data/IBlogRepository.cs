@@ -8,7 +8,9 @@ namespace code_blog.API.Data
     {
         Task<List<Post>> GetPostsAsync();
         Task<Post> GetPostAsync(int PostId);
-        Task<Post> CreatePostAsync(Post post);
+        void CreatePostAsync(Post post);
+        void DeletePost(Post post);
+        Task<bool> SaveAll();
 
     }
 }

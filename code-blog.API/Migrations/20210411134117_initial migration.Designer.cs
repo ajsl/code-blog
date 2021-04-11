@@ -9,8 +9,8 @@ using code_blog.API.Data;
 namespace code_blog.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210410165752_initial")]
-    partial class initial
+    [Migration("20210411134117_initial migration")]
+    partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,18 +33,38 @@ namespace code_blog.API.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("PublicationDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Tags")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("PostId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("code_blog.API.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("BLOB");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("BLOB");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

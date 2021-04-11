@@ -4,14 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using code_blog.API.Data;
 using code_blog.API.Models;
+using System;
+using code_blog.API.Dtos;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace code_blog.API.Controllers
 {
     public class BlogController : BaseApiController
     {
         private readonly IBlogRepository _blogRepository;
-        public BlogController(IBlogRepository blogRepository)
+        private readonly IMapper _mapper;
+        public BlogController(IBlogRepository blogRepository, IMapper mapper)
         {
+            _mapper = mapper;
             _blogRepository = blogRepository;
         }
 
@@ -21,8 +27,8 @@ namespace code_blog.API.Controllers
             var posts = await _blogRepository.GetPostsAsync();
             if (posts.Count > 0)
             {
-                return Ok();
- 
+                return Ok(posts);
+
             }
 
             return NoContent();
@@ -36,14 +42,58 @@ namespace code_blog.API.Controllers
             return Ok(returnPost);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult> AddPost(Post post)
         {
-               var createdPost = await _blogRepository.CreatePostAsync(post);
+            _blogRepository.CreatePostAsync(post);
 
-               return CreatedAtRoute("GetPost", new {controller = "Blog", 
-               id = createdPost.PostId}, post);
-            
+            if (await _blogRepository.SaveAll())
+            {
+                return CreatedAtRoute("GetPost", new
+                {
+                    controller = "Blog",
+                    id = post.PostId
+                }, post);
+            }
+
+            throw new Exception("Creating the post failed to save");
+
+
+        }
+        
+        [Authorize]
+        [HttpPost("{id}")]
+        public async Task<ActionResult> DeletePost(int id)
+        {
+            var postEntity = _blogRepository.GetPostAsync(id);
+            _blogRepository.DeletePost(postEntity.Result);
+
+            if (await _blogRepository.SaveAll())
+            {
+                return NoContent();
+            }
+
+            throw new Exception("Error deleting message");
+        }
+
+        [Authorize]
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdatePost(int id, PostForUpdateDto postForUpdateDto)
+        {
+            var postFromRepo = await _blogRepository.GetPostAsync(id);
+            if (postFromRepo != null)
+            {
+                _mapper.Map(postForUpdateDto, postFromRepo);
+            }
+
+            if (await _blogRepository.SaveAll())
+            {
+                return NoContent();
+            }
+
+            throw new Exception($"Failed to save on updating post {id}");
+
         }
     }
 }
