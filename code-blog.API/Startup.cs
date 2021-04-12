@@ -37,7 +37,7 @@ namespace code_blog.API
             });
             services.AddAutoMapper(typeof(BlogRepository), typeof(AuthRepository));
             services.AddControllers();
-
+            services.AddCors();
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -62,7 +62,8 @@ namespace code_blog.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

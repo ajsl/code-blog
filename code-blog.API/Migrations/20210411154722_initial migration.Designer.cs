@@ -9,7 +9,7 @@ using code_blog.API.Data;
 namespace code_blog.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210411134117_initial migration")]
+    [Migration("20210411154722_initial migration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace code_blog.API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("PublicationDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("PostId");

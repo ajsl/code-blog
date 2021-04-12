@@ -1,0 +1,9 @@
+<div>
+  <article *ngIf="post">
+    <h1>{{ post.title }}</h1>
+    <p>
+      Author: {{ post.author }}, Published: <em>{{ post.publishedDate }}</em>
+    </p>
+    <p>{{ post.content }}</p>
+  </article>
+</div>

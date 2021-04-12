@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using code_blog.API.Models;
 using Microsoft.EntityFrameworkCore;
 

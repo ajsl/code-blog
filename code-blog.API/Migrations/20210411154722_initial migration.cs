@@ -16,7 +16,8 @@ namespace code_blog.API.Migrations
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),
-                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(nullable: true),
+                    PublicationDate = table.Column<DateTime>(nullable: true),
                     BlogId = table.Column<int>(nullable: false),
                     Tags = table.Column<string>(nullable: true)
                 },
