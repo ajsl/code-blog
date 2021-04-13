@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsResolver } from 'resolvers/postsResolver.resolver';
 import { PostListComponent } from './posts/postList/postList/postList.component';
 import { PostDetailComponent } from './posts/postDetail/postDetail.component';
+import { PostCardComponent } from './posts/postDetail/post-card/post-card.component';
+import { PostListResolver } from 'resolvers/postDetailResolver.resolver';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import { PostDetailComponent } from './posts/postDetail/postDetail.component';
     HomeComponent,
     PostListComponent,
     PostDetailComponent,
+    PostCardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [PostsResolver],
+  providers: [PostsResolver, PostListResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

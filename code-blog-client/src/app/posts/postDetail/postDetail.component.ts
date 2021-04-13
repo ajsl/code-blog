@@ -10,7 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-postDetail',
   templateUrl: './postDetail.component.html',
-  styleUrls: ['./postDetail.component.css'],
+  styleUrls: ['./postDetail.component.sass'],
 })
 export class PostDetailComponent implements OnInit {
   post: Post;
@@ -20,8 +20,12 @@ export class PostDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(+this.route.snapshot.paramMap.get('id'));
-    this.loadPost(+this.route.snapshot.paramMap.get('id'));
+    this.route.data.subscribe({
+      next: (data: any) => {
+        this.post = data.post;
+      },
+    });
+    // this.loadPost(+this.route.snapshot.paramMap.get('id'));
   }
 
   loadPost(id: number): void {

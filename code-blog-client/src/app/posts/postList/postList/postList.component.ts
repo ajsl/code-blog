@@ -4,9 +4,9 @@ import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
-  selector: 'app-postList',
+  selector: 'app-post-list',
   templateUrl: './postList.component.html',
-  styleUrls: ['./postList.component.css'],
+  styleUrls: ['./postList.component.scss'],
 })
 export class PostListComponent implements OnInit {
   posts: Post[];
