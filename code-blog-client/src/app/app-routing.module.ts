@@ -8,6 +8,7 @@ import { PostListResolver } from 'src/app/resolvers/postDetailResolver.resolver'
 import { LoginComponent } from './admin/login/login.component';
 import { UpdatePostComponent } from './admin/updatePost/updatePost.component';
 import { AuthGuard } from './guards/authGuard';
+import { AddPostComponent } from './admin/add-post/add-post.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { posts: PostsResolver } },
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'admin/update',
     component: UpdatePostComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/add',
+    component: AddPostComponent,
     canActivate: [AuthGuard],
   },
 ];

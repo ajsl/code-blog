@@ -9,3 +9,11 @@ export interface Post {
     tags?: string;
     photoUrl: string;
 }
+
+export interface IPostToAddORUpdate{
+    title: string;
+    content: string;
+    author: string;
+    tags?: string;
+    photoUrl: string;
+}
