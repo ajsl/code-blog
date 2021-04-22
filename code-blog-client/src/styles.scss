@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+button {
+  border: red solid 1px;
+  color: red;
+  background-color: transparent;
+  padding: 16px 24px;
+
+  &:focus {
+    outline: none;
+    border: red solid 3px;
+    border-radius: 5px;
+    padding: 14.5px 23.5px;
+  }
+  &:hover {
+    outline: none;
+    border: red solid 3px;
+    border-radius: 5px;
+    padding: 14.5px 23.5px;
+  }
+}
+
+body {
+  background-color: rgb(245, 233, 210);
+  width: 100vw;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+  font-size: 20px;
+  input {
+    height: 45px;
+    font-size: 20px;
+    padding-left: 6px;
+  }
+  label {
+    padding-top: 10px;
+  }
+  button {
+    margin-top: 20px;
+  }
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+.screen-width {
+  width: 100vw;
+}

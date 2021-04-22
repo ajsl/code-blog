@@ -8,4 +8,9 @@ namespace code_blog.API.Models
         public byte[] PasswordSalt { get; set; }
         
     }
+
+    public class AuthToken
+    {
+        public string Token { get; set; }
+    }
 }

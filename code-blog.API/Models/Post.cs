@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace code_blog.API.Models
 {
@@ -13,5 +12,6 @@ namespace code_blog.API.Models
         public DateTime UpdatedDate {get; set;}
         public int BlogId { get; set; }
         public string Tags { get; set; }
+        public string photoUrl { get; set; }
     }
 }

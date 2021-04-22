@@ -1,6 +1,7 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -65,7 +66,7 @@ namespace code_blog.API.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
             };
 
@@ -73,15 +74,49 @@ namespace code_blog.API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            var userToReturn = _mapper.Map<LoginDto>(userFromRepo);
-
             return Ok(new
             {
-                token = tokenHandler.WriteToken(token),
-                userToReturn
+                token = tokenHandler.WriteToken(token)
             });
 
 
         }
+
+        [HttpPost("checkuser")]
+        public Task<bool> CheckUserToken(AuthToken authToken)
+        {
+            try
+            {
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var validationParameters = GetValidationParameters();
+
+                SecurityToken validatedToken;
+
+                IPrincipal principal = tokenHandler.ValidateToken(authToken.Token, validationParameters, out validatedToken);
+                return Task.FromResult(true);
+            }
+            catch (System.Exception)
+            {
+                return Task.FromResult(false);
+                throw;
+            }
+
+        }
+
+        private TokenValidationParameters GetValidationParameters()
+        {
+
+            return new TokenValidationParameters()
+            {
+                ValidateLifetime = false, // Because there is no expiration in the generated token
+                ValidateAudience = false, // Because there is no audiance in the generated token
+                ValidateIssuer = false,   // Because there is no issuer in the generated token
+                ValidIssuer = "Sample",
+                ValidAudience = "Sample",
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value))
+            };
+        }
+
     }
 }

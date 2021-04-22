@@ -25,7 +25,6 @@ export class PostDetailComponent implements OnInit {
         this.post = data.post;
       },
     });
-    // this.loadPost(+this.route.snapshot.paramMap.get('id'));
   }
 
   loadPost(id: number): void {

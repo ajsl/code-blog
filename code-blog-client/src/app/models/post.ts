@@ -7,4 +7,5 @@ export interface Post {
     publishedDate: Date;
     blogId: number;
     tags?: string;
+    photoUrl: string;
 }

@@ -1,7 +1,17 @@
 .post-card {
     border: black solid 1px;
     border-radius: 5px;
-    min-height: 200px;
+    min-height: 375px;
     margin: 20px;
-    padding: 5px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    button {
+        max-width: 25%;
+    }
+}
+
+.card-img {
+    max-width: 200px;
 }

@@ -1,9 +1,12 @@
 <div class="post-card">
+  <img
+    src="{{post.photoUrl != null ? post.photoUrl : '../../../../../../assets/87B11B16-C541-45C9-A0CF-1B41BB32E7F8.JPG'}}"
+    alt=""
+    class="card-img"
+  />
   <h2>
     {{ post.title }}
   </h2>
-  <p>{{ (post.content | slice:0:100) + '...'}}</p>
-  <button [routerLink]="['/post/', post.postId]">
-    Read More
-  </button>
+  <p>{{ (post.content | slice: 0:100) + "..." }}</p>
+  <button [routerLink]="['/post/', post.postId]">READ MORE</button>
 </div>
