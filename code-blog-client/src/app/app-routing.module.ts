@@ -3,11 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Home/Home.component';
 import { PostDetailComponent } from './posts/postDetail/postDetail.component';
 import { PostsResolver } from 'src/app/resolvers/postsResolver.resolver';
-import { PostListComponent } from './posts/postList/postList/postList.component';
 import { PostListResolver } from 'src/app/resolvers/postDetailResolver.resolver';
 import { LoginComponent } from './admin/login/login.component';
 import { UpdatePostComponent } from './admin/updatePost/updatePost.component';
-import { AuthGuard } from './guards/authGuard';
+import { AuthGuard } from './guards/auth.Guard';
 import { AddPostComponent } from './admin/add-post/add-post.component';
 
 const routes: Routes = [
@@ -39,5 +38,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  // providers: [AuthGuard]
 })
 export class AppRoutingModule {}

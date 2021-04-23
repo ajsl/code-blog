@@ -1,15 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(./style-reset.scss);
 button {
   border: red solid 1px;
   color: red;
   background-color: transparent;
   padding: 16px 24px;
+  cursor: pointer;
 
   &:focus {
     outline: none;
     border: red solid 3px;
     border-radius: 5px;
     padding: 14.5px 23.5px;
+    background:rgba(255, 0, 0, 0.214)
   }
   &:hover {
     outline: none;
@@ -30,10 +33,14 @@ body {
   justify-content: center;
   max-width: 50%;
   font-size: 20px;
+  .content-input {
+    height: 200px;
+  }
   input {
     height: 45px;
     font-size: 20px;
     padding-left: 6px;
+   
   }
   label {
     padding-top: 10px;

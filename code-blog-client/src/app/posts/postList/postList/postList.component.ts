@@ -19,19 +19,21 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe({
       next: (data: any) => {
-        this.posts = data.posts;
+        console.log(data.posts);
+        this.posts = data.posts.sort((a, b) => (a.publishedDate > b.publishedDate) ? -1 : 1 );
+        console.log(this.posts);
       },
     });
   }
 
   loadPosts(): void {
-    this.postService.getPosts().subscribe(
-      (p) => {
-        this.posts = p;
+    this.postService.getPosts().subscribe({
+      next: (p) => {
+        this.posts = p.sort((a, b) => (a.postId > b.postId) ? -1 : 1 );
       },
-      (error) => {
+      error: (error) => {
         console.log(error);
       }
-    );
+    });
   }
 }

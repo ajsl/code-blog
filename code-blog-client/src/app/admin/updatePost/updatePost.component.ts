@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./updatePost.component.scss'],
 })
 export class UpdatePostComponent implements OnInit {
-  updateForm: FormGroup;
+  updatePostForm: FormGroup;
 
   constructor() {}
 
@@ -16,12 +16,16 @@ export class UpdatePostComponent implements OnInit {
   }
 
   createUpdateFrom(): void {
-    this.updateForm = new FormGroup({
+    this.updatePostForm = new FormGroup({
       title: new FormControl(),
       author: new FormControl(),
       content: new FormControl(),
       tags: new FormControl(),
       photoUrl: new FormControl()
     });
+  }
+
+  onSubmit() {
+    console.log(this.updatePostForm.value);
   }
 }

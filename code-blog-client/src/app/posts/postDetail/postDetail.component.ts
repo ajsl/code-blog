@@ -5,6 +5,7 @@ import {
   Router,
 } from '@angular/router';
 import { Post } from 'src/app/models/post';
+import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -14,8 +15,11 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostDetailComponent implements OnInit {
   post: Post;
+  isAdmin = false;
+
   constructor(
     private postService: PostService,
+    private authService: AuthService,
     private route: ActivatedRoute
   ) {}
 
@@ -25,6 +29,7 @@ export class PostDetailComponent implements OnInit {
         this.post = data.post;
       },
     });
+    this.checkToken();
   }
 
   loadPost(id: number): void {
@@ -37,5 +42,16 @@ export class PostDetailComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  checkToken(): any {
+    if (localStorage.getItem('token') !== null){
+      return this.authService.checkUserIsAuthorised().subscribe({
+        next: (x) => {
+          console.log(x);
+          this.isAdmin = x;
+        }
+      });
+    }
   }
 }

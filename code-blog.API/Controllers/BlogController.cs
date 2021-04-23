@@ -44,12 +44,14 @@ namespace code_blog.API.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult> AddPost(Post post)
+        public async Task<ActionResult> CreatePost(PostForCreationDto postForCreationDto)
         {
+            var post = _mapper.Map<Post>(postForCreationDto);
             _blogRepository.CreatePostAsync(post);
 
             if (await _blogRepository.SaveAll())
             {
+                var postToReturn = _mapper.Map<PostForCreationDto>(postForCreationDto);
                 return CreatedAtRoute("GetPost", new
                 {
                     controller = "Blog",
@@ -61,7 +63,7 @@ namespace code_blog.API.Controllers
 
 
         }
-        
+
         [Authorize]
         [HttpPost("{id}")]
         public async Task<ActionResult> DeletePost(int id)

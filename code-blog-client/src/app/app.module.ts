@@ -15,6 +15,10 @@ import { LoginComponent } from './admin/login/login.component';
 import { UpdatePostComponent } from './admin/updatePost/updatePost.component';
 import { AddPostComponent } from './admin/add-post/add-post.component';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { AuthGuard } from './guards/auth.Guard';
+import { AuthService } from './services/auth.service';
+import { PostService } from './services/post.service';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     PostCardComponent,
     LoginComponent,
     UpdatePostComponent,
-    AddPostComponent
+    AddPostComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,14 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [PostsResolver, PostListResolver, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
+  providers: [
+    PostsResolver,
+    PostListResolver,
+    AuthGuard,
+    AuthService,
+    PostService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

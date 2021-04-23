@@ -25,7 +25,7 @@ namespace code_blog.API.Data
 
         public async Task<List<Post>> GetPostsAsync()
         {
-            var result = _context.Posts.OrderBy(x => x.PostId).ToListAsync();
+            var result = _context.Posts.OrderByDescending(x => x.PostId).ToListAsync();
 
             return await result;
 
