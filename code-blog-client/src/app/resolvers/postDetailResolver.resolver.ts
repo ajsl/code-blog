@@ -6,7 +6,7 @@ import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 
 @Injectable({ providedIn: 'root' })
-export class PostListResolver implements Resolve<Post> {
+export class PostResolver implements Resolve<Post> {
   constructor(private postService: PostService, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Post> {

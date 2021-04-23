@@ -9,7 +9,7 @@ import { PostsResolver } from 'src/app/resolvers/postsResolver.resolver';
 import { PostListComponent } from './posts/postList/postList/postList.component';
 import { PostDetailComponent } from './posts/postDetail/postDetail.component';
 import { PostCardComponent } from './posts/postDetail/post-card/post-card.component';
-import { PostListResolver } from 'src/app/resolvers/postDetailResolver.resolver';
+import { PostResolver } from 'src/app/resolvers/postDetailResolver.resolver';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './admin/login/login.component';
 import { UpdatePostComponent } from './admin/updatePost/updatePost.component';
@@ -41,7 +41,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
   ],
   providers: [
     PostsResolver,
-    PostListResolver,
+    PostResolver,
     AuthGuard,
     AuthService,
     PostService,

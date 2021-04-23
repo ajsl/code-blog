@@ -32,4 +32,16 @@ export class PostService {
       }
     });
   }
+
+  editPost(post: IPostToAddORUpdate, postId: number) {
+    console.log(post);
+    return this.http.put(this.baseUrl + '/' + postId, post).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/post/' + postId);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 }

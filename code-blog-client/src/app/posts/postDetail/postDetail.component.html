@@ -5,6 +5,6 @@
       Author: {{ post.author }}, Published: <em>{{ post.publishedDate }}</em>
     </p>
     <p>{{ post.content }}</p>
-    <button *ngIf="isAdmin">Edit</button>
+    <button *ngIf="isAdmin" [routerLink]="['/admin/edit/', post.postId]">Edit</button>
   </article>
 </div>

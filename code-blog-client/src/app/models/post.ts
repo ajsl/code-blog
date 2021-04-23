@@ -11,6 +11,7 @@ export interface Post {
 }
 
 export interface IPostToAddORUpdate{
+    postId: number;
     title: string;
     content: string;
     author: string;
