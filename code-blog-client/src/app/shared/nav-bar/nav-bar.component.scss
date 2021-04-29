@@ -1,5 +1,5 @@
 .nav-bar {
-    background: blue;
+    background: rgb(250, 243, 230);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,5 +9,15 @@
 
 .navbar-item-container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    
+}
+
+.nav-btn {
+    height: 40px;
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+
 }

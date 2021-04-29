@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using code_blog.API.Helpers;
 using code_blog.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,11 +24,11 @@ namespace code_blog.API.Data
            return post;
         }
 
-        public async Task<List<Post>> GetPostsAsync()
+        public async Task<PagedList<Post>> GetPostsAsync(PostParams postParams)
         {
-            var result = _context.Posts.OrderByDescending(x => x.PostId).ToListAsync();
+            var posts = _context.Posts.OrderByDescending(x => x.PostId);
 
-            return await result;
+            return await PagedList<Post>.CreateAsync(posts, postParams.PageNumber, postParams.PageSize);
 
         }
 

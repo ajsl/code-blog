@@ -12,6 +12,7 @@ namespace code_blog.API.Helpers
             CreateMap<LoginDto, User>();
             CreateMap<User, LoginDto>();
             CreateMap<PostForCreationDto, Post>();
+            CreateMap<Post, PostsToReturnDto>();
         }
     }
 }

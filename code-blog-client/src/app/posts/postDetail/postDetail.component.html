@@ -1,10 +1,12 @@
 <div>
-  <article>
+  <article class="post-detail">
     <h1>{{ post.title }}</h1>
     <p>
-      Author: {{ post.author }}, Published: <em>{{ post.publishedDate }}</em>
+      Author: {{ post.author }}, Published: <em>{{ post.publicationDate | date}}</em>
     </p>
-    <p>{{ post.content }}</p>
+    <img src="{{post.photoUrl != null ? post.photoUrl : '../../../../../../assets/87B11B16-C541-45C9-A0CF-1B41BB32E7F8.JPG'}}">
+    <p class="post-content">{{ post.content }}</p>
     <button *ngIf="isAdmin" [routerLink]="['/admin/edit/', post.postId]">Edit</button>
+    <button *ngIf="isAdmin" (click)="deletePost()">Delete</button>
   </article>
 </div>

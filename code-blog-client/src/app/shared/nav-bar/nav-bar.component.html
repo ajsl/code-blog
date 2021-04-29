@@ -1,10 +1,10 @@
 <header class="nav-bar">
   <div class="navbar-item-container">
-    <h3>Home</h3>
-    <h3>about</h3>
-    <h3>Contact</h3>
+    <button class="nav-btn" routerLink="/">Home</button>
+    <button class="nav-btn">About</button>
+    <button class="nav-btn">Contact</button>
   </div>
-  <div class="navbar-item-container">
+  <div *ngIf="admin" class="navbar-item-container">
     <p>Admin</p>
   </div>
 </header>

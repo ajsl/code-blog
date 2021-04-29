@@ -11,7 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-postDetail',
   templateUrl: './postDetail.component.html',
-  styleUrls: ['./postDetail.component.sass'],
+  styleUrls: ['./postDetail.component.scss'],
 })
 export class PostDetailComponent implements OnInit {
   post: Post;
@@ -20,6 +20,7 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private postService: PostService,
     private authService: AuthService,
+    private router: Router,
     private route: ActivatedRoute
   ) {}
 
@@ -30,6 +31,7 @@ export class PostDetailComponent implements OnInit {
       },
     });
     this.checkToken();
+    console.log(this.post);
   }
 
   loadPost(id: number): void {
@@ -42,6 +44,11 @@ export class PostDetailComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  deletePost(): void {
+    this.postService.deletePost(this.post.postId);
+    this.router.navigateByUrl('/');
   }
 
   checkToken(): any {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Post } from 'src/app/models/post';
+import { PaginatedPosts, Pagination, Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostListComponent implements OnInit {
   posts: Post[];
+  pagination: Pagination;
 
   constructor(
     private postService: PostService,
@@ -19,21 +20,31 @@ export class PostListComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe({
       next: (data: any) => {
-        console.log(data.posts);
-        this.posts = data.posts.sort((a, b) => (a.publishedDate > b.publishedDate) ? -1 : 1 );
-        console.log(this.posts);
+        console.log(data);
+        this.posts = data.posts.posts;
+        this.pagination = data.posts.pagination;
+        console.log(this.pagination);
+      },
+      error: (error) => {
+        console.log(error);
       },
     });
   }
 
-  loadPosts(): void {
-    this.postService.getPosts().subscribe({
-      next: (p) => {
-        this.posts = p.sort((a, b) => (a.postId > b.postId) ? -1 : 1 );
+  loadPosts(pageNumber: number) {
+    this.postService.getPosts(pageNumber, 6).subscribe({
+      next: (data: any) => {
+        this.posts = data.posts.sort((a, b) =>
+          a.publicationDate > b.publicationDate ? -1 : 1
+        );
+        this.pagination = data.pagination;
       },
       error: (error) => {
         console.log(error);
-      }
+      },
     });
+  }
+  updatePage(pageNumber) {
+    this.loadPosts(pageNumber);
   }
 }

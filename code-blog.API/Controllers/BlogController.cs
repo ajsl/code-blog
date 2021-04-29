@@ -8,6 +8,7 @@ using System;
 using code_blog.API.Dtos;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using code_blog.API.Helpers;
 
 namespace code_blog.API.Controllers
 {
@@ -22,11 +23,13 @@ namespace code_blog.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Post>>> GetPosts()
+        public async Task<ActionResult<PagedList<Post>>> GetPosts([FromQuery] PostParams postParams)
         {
-            var posts = await _blogRepository.GetPostsAsync();
-            if (posts.Count > 0)
+            var posts = await _blogRepository.GetPostsAsync(postParams);
+
+            if (posts.TotalCount > 0)
             {
+                Response.AddPagination(posts.CurrentPage, posts.PageSize, posts.TotalCount, posts.TotalPages);
                 return Ok(posts);
 
             }

@@ -19,6 +19,7 @@ import { AuthGuard } from './guards/auth.Guard';
 import { AuthService } from './services/auth.service';
 import { PostService } from './services/post.service';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { PostListPaginationComponent } from './posts/post-list-pagination/post-list-pagination.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
     LoginComponent,
     UpdatePostComponent,
     AddPostComponent,
-    NavBarComponent
+    NavBarComponent,
+    PostListPaginationComponent
   ],
   imports: [
     BrowserModule,
