@@ -8,6 +8,9 @@ import { LoginComponent } from './admin/login/login.component';
 import { UpdatePostComponent } from './admin/updatePost/updatePost.component';
 import { AuthGuard } from './guards/auth.Guard';
 import { AddPostComponent } from './admin/add-post/add-post.component';
+import { FourOFourComponent } from './home/four-o-four/four-o-four.component';
+import { AboutComponent } from './home/about/about.component';
+import { ContactComponent } from './home/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { posts: PostsResolver } },
@@ -22,6 +25,8 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'admin/login', component: LoginComponent },
   {
     path: 'admin/edit/:id',
@@ -33,6 +38,10 @@ const routes: Routes = [
     path: 'admin/add',
     component: AddPostComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: '**',
+    component: FourOFourComponent,
   },
 ];
 

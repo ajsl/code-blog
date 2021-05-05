@@ -20,6 +20,9 @@ import { AuthService } from './services/auth.service';
 import { PostService } from './services/post.service';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { PostListPaginationComponent } from './posts/post-list-pagination/post-list-pagination.component';
+import { FourOFourComponent } from './home/four-o-four/four-o-four.component';
+import { AboutComponent } from './home/about/about.component';
+import { ContactComponent } from './home/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { PostListPaginationComponent } from './posts/post-list-pagination/post-l
     UpdatePostComponent,
     AddPostComponent,
     NavBarComponent,
-    PostListPaginationComponent
+    PostListPaginationComponent,
+    FourOFourComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

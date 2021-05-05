@@ -9,6 +9,9 @@
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/AutoMapper.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Data.Sqlite.dll
@@ -26,6 +29,8 @@
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
@@ -36,6 +41,8 @@
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Npgsql.dll
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/SQLitePCLRaw.core.dll
@@ -68,3 +75,8 @@
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.pdb
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.genruntimeconfig.cache
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/web.config
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/appsettings.Development.json
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/appsettings.json
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/code-blog.API.deps.json
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/code-blog.API.runtimeconfig.json

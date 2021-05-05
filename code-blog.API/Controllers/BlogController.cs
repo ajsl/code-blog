@@ -27,7 +27,7 @@ namespace code_blog.API.Controllers
         {
             var posts = await _blogRepository.GetPostsAsync(postParams);
 
-            if (posts.TotalCount > 0)
+            if (posts != null)
             {
                 Response.AddPagination(posts.CurrentPage, posts.PageSize, posts.TotalCount, posts.TotalPages);
                 return Ok(posts);

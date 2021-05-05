@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using code_blog.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,7 @@ namespace code_blog.API.Data
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash, passwordSalt;
+
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
             user.PasswordHash = passwordHash;
@@ -60,9 +62,12 @@ namespace code_blog.API.Data
 
         public async Task<bool> UserExists(string username)
         {
-            if (await _context.Users.AnyAsync(u => u.Username == username)) return true; 
+            var users = await _context.Users.Where(u => u.Username == username).ToListAsync();
+            
 
-            return false;
+            // if (await _context.Users.AnyAsync(u => u.Username == username)) return true; 
+            if (users.Count() == 0) return false; 
+            return true;
         }
 
     }

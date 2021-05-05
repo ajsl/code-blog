@@ -29,15 +29,15 @@ namespace code_blog.API
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<DataContext>(x =>
-            {
-                x.UseSqlite
-                (Configuration.GetConnectionString("DefaultConnection"));
-            });
+        {      
             services.AddAutoMapper(typeof(BlogRepository), typeof(AuthRepository));
             services.AddControllers();
             services.AddCors();
+            services.AddDbContext<DataContext>(x =>
+            {
+                x.UseNpgsql
+                (Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddScoped<IBlogRepository, BlogRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -66,6 +66,8 @@ namespace code_blog.API
             
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -75,6 +77,7 @@ namespace code_blog.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

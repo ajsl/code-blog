@@ -1,8 +1,8 @@
 <header class="nav-bar">
   <div class="navbar-item-container">
     <button class="nav-btn" routerLink="/">Home</button>
-    <button class="nav-btn">About</button>
-    <button class="nav-btn">Contact</button>
+    <button class="nav-btn" routerLink="/about">About</button>
+    <button class="nav-btn" routerLink="/contact">Contact</button>
   </div>
   <div *ngIf="admin" class="navbar-item-container">
     <p>Admin</p>

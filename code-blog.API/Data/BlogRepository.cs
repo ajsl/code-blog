@@ -19,16 +19,33 @@ namespace code_blog.API.Data
 
         public async Task<Post> GetPostAsync(int id)
         {
-           var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == id);
+            try
+            {
+                var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == id);
 
-           return post;
+                return post;
+            }
+            catch (System.Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public async Task<PagedList<Post>> GetPostsAsync(PostParams postParams)
         {
-            var posts = _context.Posts.OrderByDescending(x => x.PostId);
+            try
+            {
+                // var posts = _context.Posts.OrderByDescending(x => x.PostId);
+                var posts = _context.Posts;
 
-            return await PagedList<Post>.CreateAsync(posts, postParams.PageNumber, postParams.PageSize);
+                return await PagedList<Post>.CreateAsync(posts, postParams.PageNumber, postParams.PageSize);
+            }
+            catch (System.Exception)
+            {
+               return null;
+            }
 
         }
 

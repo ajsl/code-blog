@@ -1,9 +1,10 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace code_blog.API.Migrations
+namespace code_blog.API.Data.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class initialpostgres : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,14 +13,15 @@ namespace code_blog.API.Migrations
                 columns: table => new
                 {
                     PostId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),
-                    UpdatedDate = table.Column<DateTime>(nullable: true),
-                    PublicationDate = table.Column<DateTime>(nullable: true),
+                    PublicationDate = table.Column<DateTime>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
                     BlogId = table.Column<int>(nullable: false),
-                    Tags = table.Column<string>(nullable: true)
+                    Tags = table.Column<string>(nullable: true),
+                    photoUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,7 +33,7 @@ namespace code_blog.API.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Username = table.Column<string>(nullable: true),
                     PasswordHash = table.Column<byte[]>(nullable: true),
                     PasswordSalt = table.Column<byte[]>(nullable: true)
