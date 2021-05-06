@@ -2,5 +2,7 @@
 bin
 obj
 *.db
+code-blog.API/Data/UserSeedData.json
+publish
 /node_modules
 wwwroot

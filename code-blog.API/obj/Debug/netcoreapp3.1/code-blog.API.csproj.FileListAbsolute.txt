@@ -75,8 +75,4 @@
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.dll
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.pdb
 /Users/james/Documents/projects/code-blog/code-blog.API/obj/Debug/netcoreapp3.1/code-blog.API.genruntimeconfig.cache
-/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/web.config
-/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/appsettings.Development.json
-/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/appsettings.json
-/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/code-blog.API.deps.json
-/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Publish/code-blog.API.runtimeconfig.json
+/Users/james/Documents/projects/code-blog/code-blog.API/bin/Debug/netcoreapp3.1/Data/UserSeedData.json
